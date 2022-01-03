@@ -1,2 +1,2 @@
-# logical-chatbot
-MSc project of conversational agent using NLP
+# Logical Chatbot 💬
+MSc project of **conversational agent** using *NLP*
