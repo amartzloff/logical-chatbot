@@ -2,8 +2,8 @@
 MSc project of **conversational agent** using *NLP*
 
 ## Project architecture
-data : directory with every raw data files
-src : python files
+data : directory with every raw data files <\br>
+src : python files <\br>
 out : 
 
 ## TODO :
