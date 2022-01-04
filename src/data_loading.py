@@ -1,6 +1,7 @@
 import json
 import pandas as pd
 
+# function to create the q&A dataframe
 def get_qa_df(filepath, label):
   # loads json file
   with open(filepath) as f:
@@ -24,6 +25,7 @@ def get_qa_df(filepath, label):
   qa_df = pd.DataFrame(frame)
   return qa_df
 
+# function to create the chitchat dataframe
 def get_chitchat_df(filepath, label):
   # loads json file
   with open(filepath) as f:
@@ -42,6 +44,8 @@ def get_chitchat_df(filepath, label):
   chitchat_df = pd.DataFrame(frame)
   return chitchat_df
 
-def create_dataset(df1,df2):
-  # ne retourne rien car juste cela créer un fichier csv !
-  return none
+# function to create our csv file with the dataset
+def create_dataset(df1,df2,csv_path,csv_name):
+  dataset = pd.concat([df1, df2], axis= 0)
+  my_path = os.path.join(csv_path, csv_name)
+  dataset.to_csv(my_path, index=False)
