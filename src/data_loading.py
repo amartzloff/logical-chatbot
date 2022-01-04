@@ -1,5 +1,25 @@
 import json
 import pandas as pd
+import os
+
+# function to create the chitchat dataframe
+def get_chitchat_df(filepath, label):
+  # loads json file
+  with open(filepath) as f:
+    data = json.load(f)
+  # extracts data
+  qna_list = data['qnaList']
+  # creates list of chitchats
+  inputs = []
+  qna_list_length = len(qna_list)
+  for i in range(qna_list_length) :
+    question = qna_list[i]['questions']
+    inputs += question
+  chitchat_number = len(inputs)
+  labels = [label for i in range(chitchat_number)]
+  frame = {'Input': inputs, 'Label': labels}
+  chitchat_df = pd.DataFrame(frame)
+  return chitchat_df
 
 # function to create the q&A dataframe
 def get_qa_df(filepath, label):
@@ -24,25 +44,6 @@ def get_qa_df(filepath, label):
   frame = {'Input': inputs, 'Label': labels}
   qa_df = pd.DataFrame(frame)
   return qa_df
-
-# function to create the chitchat dataframe
-def get_chitchat_df(filepath, label):
-  # loads json file
-  with open(filepath) as f:
-    data = json.load(f)
-  # extracts data
-  qna_list = data['qnaList']
-  # creates list of chitchats
-  inputs = []
-  qna_list_length = len(qna_list)
-  for i in range(qna_list_length) :
-    question = qna_list[i]['questions']
-    inputs += question
-  chitchat_number = len(inputs)
-  labels = [label for i in range(chitchat_number)]
-  frame = {'Input': inputs, 'Label': labels}
-  chitchat_df = pd.DataFrame(frame)
-  return chitchat_df
 
 # function to create our csv file with the dataset
 def create_dataset(df1,df2,csv_path,csv_name):
