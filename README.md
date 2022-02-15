@@ -2,6 +2,7 @@
 MSc project of **conversational agent** using *NLP*
 
 ## Project architecture
+### Folders
 **data** : directory with every raw data files </br>
 **src** : python files </br>
 **out** : directory where pops the dataset file
