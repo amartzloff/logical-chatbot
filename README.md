@@ -9,5 +9,9 @@ MSc project of **conversational agent** using *NLP*
 **requirements** : file with the modules and their version to be installed
 
 ## TODO :
-(You may first and foremost want to run *pip install -r requirements.txt* to make sure you'll get the specific version of every package needed for this project. Then, do :)
+(You may first and foremost want to run
+```bash
+pip install -r requirements.txt
+```
+to make sure you'll get the specific version of every package needed for this project. Then, do :)
 1. First, run *dataset_creating.py* to create the dataset.
