@@ -8,6 +8,7 @@ MSc project of **conversational agent** using *NLP*
 **out** : directory where pops the dataset file
 ### Files
 **requirements** : file with the modules and their version to be installed
+**analysis** : file with the function to predict the type of discourse (chitchat or Q&A) of sentences.
 
 ## TODO :
 First and foremost you should make sure you'll get the specific version of every package needed for this project by running :
