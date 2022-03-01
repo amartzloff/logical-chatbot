@@ -1,16 +1,17 @@
 import torch
 import sklearn
 import numpy as np
+from nltk.tokenize import sent_tokenize
 from sklearn.metrics import matthews_corrcoef
 from transformers import BertForSequenceClassification, BertTokenizer
 from torch.utils.data import TensorDataset, SequentialSampler, DataLoader
 
-# checks torch and transformers versions
+# checks packages versions
 
 #print("Version:",torch.__version__)
-#import transformers
 #print("Version:",transformers.__version__)
 #print("Version:",sklearn.__version__)
+#print("Version:",nltk.__version__)
 
 # checks if a GPU is available
 
@@ -36,6 +37,30 @@ def my_label(label):
     return("Chitchat")
   elif label == 1:
     return("Q&A")
+
+# to run ones
+# import nltk
+# import ssl
+# try:
+#     _create_unverified_https_context = ssl._create_unverified_context
+# except AttributeError:
+#     pass
+# else:
+#     ssl._create_default_https_context = _create_unverified_https_context
+# nltk.download('punkt')
+
+# fonction that returns the last sentence and its context for a message
+def get_input(message):
+    sentences = sent_tokenize(message)
+    number_sentences = len(sentences)
+    if number_sentences == 1:
+        context = sentences[0]
+    else :
+        context = ""
+        for i in range(number_sentences - 1):
+            context += sentences[i] + " "
+    last_sentence = sentences[number_sentences-1]
+    return last_sentence, context
 
 # function that gives the text and integer predicted label for a given sentence
 def classif(phrase1, label1, phrase2="How are you", label2=0):
